@@ -10,7 +10,7 @@ import tempfile
 import uuid
 
 REPO = Path(__file__).resolve().parent.parent
-RUNTIME_FILES = ['motion_core.py', 'apply_camera_motion.py']
+RUNTIME_FILES = ['motion_core.py', 'apply_camera_motion.py', 'prepare_motion.py']
 
 
 def fingerprint(root):

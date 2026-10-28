@@ -1,0 +1,65 @@
+{
+  "scope": "Independent synthetic check, not a general robustness benchmark",
+  "method": "Encoded-frame ECC Euclidean registration against each clip first frame; remove linear trend, compute translation/rotation RMS. Different estimator from runtime LK/RANSAC.",
+  "synthetic_input": "60 frames, 400x240,30fps, known textured rigid scene with sinusoidal translation/rotation and small linear drift",
+  "before": {
+    "frames": 60,
+    "black_frames": 0,
+    "minimum_edge_channel_value": 59,
+    "translation_detrended_rms_pixels": 5.159871314029333,
+    "rotation_detrended_rms_degrees": 0.8420470985983076,
+    "minimum_ecc_correlation": 0.9995488206626784
+  },
+  "after": {
+    "frames": 60,
+    "black_frames": 0,
+    "minimum_edge_channel_value": 49,
+    "translation_detrended_rms_pixels": 0.661687482303895,
+    "rotation_detrended_rms_degrees": 0.10519613914555997,
+    "minimum_ecc_correlation": 0.9993288400086664
+  },
+  "translation_reduction_fraction": 0.8717627936757235,
+  "rotation_reduction_fraction": 0.8750709558637847,
+  "static_mask": {
+    "source": "Synthetic color-separated ellipse with known pixel ground truth",
+    "iou": 1.0,
+    "note": "Single easy segmentation case; does not establish complex hair, glass or video performance"
+  },
+  "real_input_motion_diagnosis": {
+    "source": "media/street.mp4",
+    "duration_seconds": 1,
+    "valid_pairs": 29,
+    "total_pairs": 29,
+    "note": "A valid fit is not semantic proof of background identity"
+  },
+  "normalization_command": {
+    "frames": 60,
+    "fps": 30,
+    "decode": "passed"
+  },
+  "packaging": {
+    "valid_skills": 12,
+    "wrapper_help_checks": 10,
+    "local_markdown_links_checked": 110,
+    "clean_single_skill_install": "passed",
+    "idempotent_install": "passed",
+    "installed_preparation_wrapper_real_input_frames": 15,
+    "shared_runtime_files": [
+      "motion_core.py",
+      "apply_camera_motion.py",
+      "prepare_motion.py"
+    ],
+    "local_full_library_upgrade": "passed"
+  },
+  "regression": {
+    "tests": 14,
+    "result": "passed",
+    "scope": "Eight CV preparation tests plus six prior geometry/time mapping tests"
+  },
+  "environment": {
+    "python": "3.9.6",
+    "opencv": "4.13.0",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1"
+  }
+}

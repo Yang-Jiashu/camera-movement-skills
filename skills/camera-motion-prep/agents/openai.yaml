@@ -1,0 +1,4 @@
+interface:
+  display_name: "运镜视觉预处理"
+  short_description: "分析背景运动、修正轻度全局抖动，并为静态分层准备可检查的前景掩码"
+  default_prompt: "用 $camera-motion-prep 检查我的素材，为后续运镜选择必要的运动诊断、稳像或静态掩码处理，并说明失败区间与资产条件。"

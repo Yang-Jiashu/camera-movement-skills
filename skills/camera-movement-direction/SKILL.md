@@ -16,10 +16,17 @@ description: "统筹多镜头视频的运镜、技法选择与剪辑组合，按
 
 不能查看素材时，把依据和可行性写成条件；文件名或旧处理说明不能替代当前画面。缺少会改变方案的信息时先检查上下文，必要时询问，同时推进不依赖答案的部分。
 
+## 提前设计CV处理
+
+用户要求详细算法方案，或镜头依赖跟踪、稳像、分割、深度、光流与配准时，按需读 [共用CV流程](references/cv-pipeline.md) 和 [镜头处理配方](references/cv-recipes.md)，再读取具体技法自己的处理参考。先明确输入契约与资产交接，再执行；将已有命令、可选外部模型和仍需验证的设计分开记录。
+
+同库预处理技能可用时按其实际帮助执行；缺失时可用本页已有素材入口和专门技能自包含参考组织人工标注、几何检查及现有CV工具，不能假称运行了未安装的模型。
+
 ## 路由到专门技能
 
 | 请求与输入条件 | 读取的技能 |
 | --- | --- |
+| 素材盘点、背景稳像、ROI与mask准备 | [camera-motion-prep](../camera-motion-prep/SKILL.md) |
 | 照片/视频的数字推拉、横纵取景与画幅转换 | [camera-reframe](../camera-reframe/SKILL.md) |
 | 指定主体的跟随裁切与失跟处理 | [camera-subject-track](../camera-subject-track/SKILL.md) |
 | 动态滚转、完整转一圈及回正 | [camera-barrel-roll](../camera-barrel-roll/SKILL.md) |

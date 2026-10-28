@@ -1,0 +1,129 @@
+{
+  "status": "execution_and_failure_protection_passed; real static mask requires refinement",
+  "opencv_version": "4.13.0",
+  "implemented": [
+    "Shi-Tomasi sparse features",
+    "Pyramidal LK with forward/backward filtering",
+    "RANSAC four-DOF similarity and inlier/spatial-support gates",
+    "Gaussian transform-path smoothing and bounded uniform-crop stabilization",
+    "User-ROI/static-seed GrabCut mask"
+  ],
+  "not_implemented": [
+    "SAM/SAM2",
+    "learned monocular depth",
+    "RAFT dense flow",
+    "metric 3D reconstruction",
+    "video mask propagation",
+    "semantic background verification",
+    "automatic VFR detection"
+  ],
+  "real_media_tests": [
+    {
+      "command": "analyze",
+      "input": "media/bay.mp4",
+      "frames": 20,
+      "valid_pair_fraction": 1.0,
+      "rejected_intervals": []
+    },
+    {
+      "command": "stabilize",
+      "input": "media/jewel-night.mp4",
+      "validation": {
+        "decode": "passed",
+        "frames": 20,
+        "fps": 20.0,
+        "size": [
+          320,
+          180
+        ],
+        "duration": 1.0
+      },
+      "valid_pair_fraction": 1.0,
+      "minimum_source_pixel_margin": 27.70168113212594,
+      "crop_zoom": 1.05,
+      "audio": "silent"
+    },
+    {
+      "command": "mask",
+      "input": "media/vertigo-layers/source.jpg",
+      "source_size": [
+        2160,
+        1215
+      ],
+      "foreground_fraction": 0.05520833333333333,
+      "iterations": 3,
+      "learned_segmentation": false,
+      "temporal_propagation": false,
+      "visual_review": {
+        "status": "needs_manual_refinement",
+        "findings": [
+          "Broad initial ROI includes surrounding walkway/background components.",
+          "Initial color mask is not an accepted production museum silhouette."
+        ],
+        "next_step": "Tighten ROI, add foreground/background seeds, inspect contour and manually refine before compositing."
+      }
+    }
+  ],
+  "synthetic_tests": {
+    "translation_recovery_rms_source_pixels": 0.047381940214709234,
+    "retracked_high_frequency_translation_rms_before": 4.092946383640294,
+    "retracked_high_frequency_translation_rms_after_source_units": 0.29963097730102906,
+    "ratio_after_before": 0.07320667050481498,
+    "stabilization_minimum_source_margin": 9.527922540529318,
+    "color_circle_mask_iou_test": "passed >0.98",
+    "textureless_valid_pairs": 0,
+    "textureless_rejected_intervals": [
+      {
+        "start_frame": 1,
+        "end_frame_exclusive": 8,
+        "output_seconds": [
+          0.05,
+          0.4
+        ],
+        "source_seconds_cfr_assumption": [
+          0.05,
+          0.4
+        ]
+      }
+    ]
+  },
+  "failure_protection": [
+    {
+      "name": "directory_report_rejected_before_replacing_mask",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "name": "hardlink_input_alias_rejected",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "name": "tagged_hdr_rejected_without_conversion",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "name": "textureless_stabilization_rejected",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "name": "textureless_analysis_reports_failure_intervals",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "second_file_replace_failure_restores_previous_output_and_report",
+      "passed": true,
+      "validated_by": "test_cv_preparation.PreparationTests.test_second_artifact_failure_restores_both_old_files"
+    }
+  ],
+  "limits": [
+    "Model-fit acceptance does not prove a semantically static background; water/people/parallax require a suitable ROI and visual review.",
+    "Stabilization uses a global similarity only; it does not correct rolling shutter or nonrigid scene motion.",
+    "Mask is an initial static color segmentation and may need manual refinement; it is not a temporally tracked video mask.",
+    "Inputs are 8-bit SDR; tagged HDR is rejected. Video sampling assumes CFR; VFR is not detected.",
+    "Multi-artifact publication stages all files and rolls back ordinary replacement failures; it is not a cross-file atomic transaction."
+  ]
+}
