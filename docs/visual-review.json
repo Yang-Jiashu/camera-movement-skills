@@ -1,0 +1,16 @@
+{
+  "verdict": "pass",
+  "scope": "Full video-stream decode of six 120-frame examples plus the 840-frame showreel; ordered visual inspection of critical sampled frames.",
+  "must_fix": [],
+  "visual_findings": {
+    "barrel_roll": "Complete roll visible across phase samples, frame corners covered, geometry remains rigid.",
+    "whip_pan": "Directionally blurred outgoing and incoming views bridge the transition; stable readable landing.",
+    "layered_vertigo": "Foreground museum silhouette intact in the final frame; background scale change is clear; 2.5D label visible.",
+    "occlusion_wipe": "Observed tracked pillar side-face and replacement boundary align at sampled frames 54\u201386.",
+    "match_zoom": "Fast zoom/blur covers the day-night cut; no obvious clipped full-frame flash or empty edge.",
+    "speed_ramp": "Train, track, trees and waterfall remain readable through the chosen sequence.",
+    "labels": "Technique names, numbering and subtitles complete in reviewed frames."
+  },
+  "intentional_static_frames": "Layered-vertigo first eased interval and the showreel end card are intentional near-static content.",
+  "presentation": "Strong enough for a first GitHub showcase; complete roll and real-pillar reveal provide immediate visual identity."
+}

@@ -1,0 +1,315 @@
+{
+  "outputs": [
+    {
+      "file": "examples/01-barrel-roll.mp4",
+      "frames": 120,
+      "fps": 30.0,
+      "duration": 4.0,
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 6506790,
+      "decode": "passed",
+      "black_frames": [],
+      "min_frame_difference": 13.868506944444444
+    },
+    {
+      "file": "examples/02-whip-pan.mp4",
+      "frames": 120,
+      "fps": 30.0,
+      "duration": 4.0,
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 2605832,
+      "decode": "passed",
+      "black_frames": [],
+      "min_frame_difference": 10.168072916666667
+    },
+    {
+      "file": "examples/03-layered-vertigo.mp4",
+      "frames": 120,
+      "fps": 30.0,
+      "duration": 4.0,
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 2887239,
+      "decode": "passed",
+      "black_frames": [],
+      "min_frame_difference": 0.05373263888888889
+    },
+    {
+      "file": "examples/04-occlusion-wipe.mp4",
+      "frames": 120,
+      "fps": 30.0,
+      "duration": 4.0,
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 7574359,
+      "decode": "passed",
+      "black_frames": [],
+      "min_frame_difference": 1.2903125
+    },
+    {
+      "file": "examples/05-match-zoom.mp4",
+      "frames": 120,
+      "fps": 30.0,
+      "duration": 4.0,
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 4875356,
+      "decode": "passed",
+      "black_frames": [],
+      "min_frame_difference": 0.93046875
+    },
+    {
+      "file": "examples/06-speed-ramp.mp4",
+      "frames": 120,
+      "fps": 30.0,
+      "duration": 4.0,
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 2835538,
+      "decode": "passed",
+      "black_frames": [],
+      "min_frame_difference": 1.9663194444444445
+    },
+    {
+      "file": "examples/07-outro.mp4",
+      "frames": 120,
+      "fps": 30.0,
+      "duration": 4.0,
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 1100170,
+      "decode": "passed",
+      "black_frames": [],
+      "min_frame_difference": 0.0
+    },
+    {
+      "file": "examples/showreel.mp4",
+      "frames": 840,
+      "fps": 30.0,
+      "duration": 28.0,
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 29106734,
+      "decode": "passed",
+      "black_frames": [],
+      "min_frame_difference": 0.0
+    }
+  ],
+  "audio": {
+    "duration": 28.0,
+    "rate": 48000,
+    "channels": 2,
+    "peak_dbfs": -4.437328429272022,
+    "clipped_samples": 0
+  },
+  "inputs": {
+    "media/provenance.json": {
+      "bytes": 1728,
+      "sha256": "927f0080989c394316e3306832136d87735e9ff1fc6ada0c6394c879bb3037f9"
+    },
+    "media/airport.mp4": {
+      "bytes": 27351438,
+      "sha256": "2cef650b55307c85cf6bfa40fcd93b3b435d0a0491e72da5fdc411065f5178ba"
+    },
+    "media/jewel-night.mp4": {
+      "bytes": 5689244,
+      "sha256": "08aa7678b77f46ffff252f60af16407ec8bf560d263c0745398406ccde34ac4f"
+    },
+    "media/gardens.mp4": {
+      "bytes": 17744532,
+      "sha256": "d4a263bb70b42caf04f9477c4507b58c75bc48b6c7059be1ecd3217c21f92c60"
+    },
+    "media/jewel-day.jpg": {
+      "bytes": 1400115,
+      "sha256": "56d59e449b7392d7f4648f14ce1b5d45d30d3559611859b0be1ff81dcaebe379"
+    },
+    "media/train.mp4": {
+      "bytes": 10945950,
+      "sha256": "ac035810f8ce1ba70635dfaaef6c0a5dfcc0a1652f58b38d81c36cd429037c22"
+    },
+    "media/street.mp4": {
+      "bytes": 3764876,
+      "sha256": "f34e0ed93ec6b77dd5301da6a6c6042d1689a1119746c5d0c59d097040af9248"
+    },
+    "media/bay.mp4": {
+      "bytes": 2882758,
+      "sha256": "c794b92eb1a19d6836507617d00a3bab6848fd0e3b018af7146933124105e04e"
+    },
+    "media/pillar-masks/0006.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0012.png": {
+      "bytes": 6568,
+      "sha256": "4fce34f519eced0fd14a2c93f625f6f6f1e987896cb54b1c9551c50a95619681"
+    },
+    "media/pillar-masks/0013.png": {
+      "bytes": 6264,
+      "sha256": "06389bcf15ee61d2b7761e0d03245ee91a5bacb5b5a6d1a4b9f2b6e4cfbd093a"
+    },
+    "media/pillar-masks/0007.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0011.png": {
+      "bytes": 6560,
+      "sha256": "85561ddcf43d20fa9ea3fff2dfb73b9d00d377dabe148587dff9f5fdf8ebac5f"
+    },
+    "media/pillar-masks/0005.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0004.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0010.png": {
+      "bytes": 6597,
+      "sha256": "1a44e47f5e0e1cbaa7a868bdb0966a8bd8476861c49a6a90dc544e821770003d"
+    },
+    "media/pillar-masks/0028.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0014.png": {
+      "bytes": 6546,
+      "sha256": "bda9a8861b764a064dad0e66fab00c51870e6b32487a402b9e597688e5c596e5"
+    },
+    "media/pillar-masks/0000.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0001.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0015.png": {
+      "bytes": 6525,
+      "sha256": "8220a4eadfa3d8e0137ed3af081ea14f98baeebdc5fdeb2a8ad9f7fc404c3dbc"
+    },
+    "media/pillar-masks/0029.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0003.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0017.png": {
+      "bytes": 6587,
+      "sha256": "9a9c5984a8c11442c5ffbf6894f0d88b9ea1ed365ee1f7222372bd709d23a2ad"
+    },
+    "media/pillar-masks/0016.png": {
+      "bytes": 6543,
+      "sha256": "8949a8f58dbab4717949839befdb71bf7471e7ab7662bf440f495f7ca39e083f"
+    },
+    "media/pillar-masks/0002.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0027.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0032.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0026.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0030.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0024.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0018.png": {
+      "bytes": 6386,
+      "sha256": "0859993710c5b30c9a0bc8fa2bfe6b4ba78ee99b85a22ef6210d6635521ba231"
+    },
+    "media/pillar-masks/0019.png": {
+      "bytes": 6807,
+      "sha256": "c5ad25d72dec3131defdf9addb2092773957c43486acaf738b85c3cda3e07edf"
+    },
+    "media/pillar-masks/0025.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0031.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0009.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0021.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0020.png": {
+      "bytes": 6359,
+      "sha256": "a9ece242cec9fc0f2a53e3429b92b2fc7fe0cc48e647a6ed459dfdcf6c1e651c"
+    },
+    "media/pillar-masks/0008.png": {
+      "bytes": 2147,
+      "sha256": "9e355810b89772e4a0bd95f4c5f78a0e7e7e4438334064d84d6dad53a54b614f"
+    },
+    "media/pillar-masks/0022.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/pillar-masks/0023.png": {
+      "bytes": 2508,
+      "sha256": "8fd63e2719a28ea25cb6a1167cde00eb3f1360d188c2234eb877f5535ffde1a7"
+    },
+    "media/vertigo-layers/parameters.json": {
+      "bytes": 298,
+      "sha256": "99a7714baca0857a23110b7cc406f7ad701ffaa15463c50751c6f5cdc7f4a1d9"
+    },
+    "media/vertigo-layers/background.jpg": {
+      "bytes": 1349461,
+      "sha256": "9edfc2061ed227c869a8d5faf01002b8070fd657de97ad0704b30998623428de"
+    },
+    "media/vertigo-layers/source.jpg": {
+      "bytes": 1592577,
+      "sha256": "e44a71fc6de84a30b2006e4e96e62a165a56464779421f06bdfa70f59da95dd2"
+    },
+    "media/vertigo-layers/foreground_alpha.png": {
+      "bytes": 10560,
+      "sha256": "14db0669336497e933dd731711d018d325a9f32906c2434f50b86620520b1830"
+    }
+  },
+  "encoded_audio": {
+    "peak_dbfs": -3.977491557598114,
+    "clipped_samples": 0
+  },
+  "browser_playback": {
+    "duration": 28,
+    "rate": 1,
+    "ended": true,
+    "error": null
+  }
+}

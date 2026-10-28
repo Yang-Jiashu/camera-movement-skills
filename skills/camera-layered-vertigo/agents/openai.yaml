@@ -1,0 +1,4 @@
+interface:
+  display_name: "2.5D分层眩晕"
+  short_description: "固定刚性前景并反向缩放后景，校验轮廓、背景补洞和覆盖边界"
+  default_prompt: "用 $camera-layered-vertigo 为我的分层图像制作眩晕效果，保持主体刚性并检查背景接缝。"

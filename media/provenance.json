@@ -1,0 +1,71 @@
+{
+  "gardens.mp4": {
+    "original": "IMG_0436.MOV",
+    "original_seconds": [
+      0.1,
+      2.1
+    ],
+    "duration": 4,
+    "processing": "4K HDR to 2880x1620 SDR; retimed to 30fps from high-frame-rate source"
+  },
+  "street.mp4": {
+    "original": "IMG_0452.MOV",
+    "upstream": "rainbow_forward",
+    "original_seconds": [
+      0.25,
+      2.65
+    ],
+    "duration": 4,
+    "processing": "Reuse normalized, graded real video"
+  },
+  "bay.mp4": {
+    "original": "IMG_0442.MOV",
+    "upstream": "bay_walk",
+    "upstream_seconds": [
+      0,
+      4
+    ],
+    "duration": 4
+  },
+  "airport.mp4": {
+    "original": "IMG_0432.MOV",
+    "upstream": "arrival_complete_occlusion",
+    "used_upstream_seconds": [
+      5.1,
+      8.0
+    ],
+    "mask_upstream_start": 6.9,
+    "mask_frames": 33
+  },
+  "jewel-night.mp4": {
+    "original": "IMG_0470.MOV",
+    "original_seconds": [
+      8,
+      13
+    ],
+    "duration": 5,
+    "processing": "HDR to SDR; 30fps sampling"
+  },
+  "jewel-day.jpg": {
+    "original_photos": [
+      "IMG_0238.HEIC",
+      "IMG_0237.HEIC"
+    ],
+    "processing": "Single frame from registered photo panorama; static water and train belong to photographed image"
+  },
+  "train.mp4": {
+    "original": "IMG_0471.MOV",
+    "upstream": "train_continuous",
+    "duration": 19.5,
+    "processing": "Reuse continuous normalized real train video"
+  },
+  "vertigo-layers": {
+    "original_photo": "IMG_0434.HEIC",
+    "processing": "Rigid near card and completed far plate; foreground silhouette refined; limited 2.5D composite"
+  },
+  "soundtrack": {
+    "processing": "Procedural synthesized rhythm, bass, hats, pad and transition whooshes",
+    "seed": 20261028,
+    "third_party_music": false
+  }
+}

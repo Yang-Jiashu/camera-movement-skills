@@ -1,0 +1,4 @@
+interface:
+  display_name: "有限深度视差"
+  short_description: "用刚性前后景图层设计有限视差，检查遮挡关系、补洞与运动边界"
+  default_prompt: "用 $camera-depth-parallax 为我的分层素材设计有限视差运动，检查轮廓、遮挡与背景覆盖。"

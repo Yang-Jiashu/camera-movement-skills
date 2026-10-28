@@ -1,0 +1,4 @@
+interface:
+  display_name: "甩镜转场"
+  short_description: "连接两个视频镜头，控制甩动方向、模糊切点和清楚的稳定落点"
+  default_prompt: "用 $camera-whip-pan 为我的两个视频设计并制作甩镜转场，检查方向、接缝与落点。"

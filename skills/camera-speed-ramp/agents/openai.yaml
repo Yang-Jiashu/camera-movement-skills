@@ -1,0 +1,4 @@
+interface:
+  display_name: "速度渐变"
+  short_description: "设计视频的快慢节奏与单调时间映射，核查真实帧密度和动作落点"
+  default_prompt: "用 $camera-speed-ramp 为我的视频设计速度渐变，保留关键动作，报告实际倍速和帧选择。"

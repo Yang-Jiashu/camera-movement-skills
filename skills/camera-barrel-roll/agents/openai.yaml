@@ -1,0 +1,4 @@
+interface:
+  display_name: "滚转与回正"
+  short_description: "设计完整滚转或指定角度动作，校验旋转边缘、取景与清晰度"
+  default_prompt: "用 $camera-barrel-roll 为我的素材制作可辨认的滚转，检查安全倍率、边缘和回正落点。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "数字推拉与重构图"
+  short_description: "在已有照片与视频的可用画幅内设计推近、拉远和横纵取景路径"
+  default_prompt: "用 $camera-reframe 为我的素材设计并执行数字取景运动，说明起止构图、裁切余量和画质条件。"

@@ -1,0 +1,53 @@
+{
+  "scope": "Nine generic techniques tested with short real-media exports; six showcase examples separately verified at 1280x720, 30fps.",
+  "commands": [
+    "reframe",
+    "roll",
+    "whip",
+    "wipe",
+    "match-zoom",
+    "speed-ramp",
+    "subject-track",
+    "layered-vertigo",
+    "parallax"
+  ],
+  "geometry_and_time_mapping_tests": {
+    "count": 6,
+    "result": "passed"
+  },
+  "additional_checks": [
+    "33-frame external pillar mask",
+    "source audio on unchanged-time video",
+    "HDR rejection and explicit conversion",
+    "SDR double-tone-map prevention",
+    "explicit repeat-frame permission",
+    "failed render preserves existing output and JSON"
+  ],
+  "independent_forward_tests": {
+    "requests": [
+      "off-center reframe",
+      "full 360-degree roll",
+      "limited layer parallax"
+    ],
+    "size": [
+      640,
+      360
+    ],
+    "fps": 30,
+    "result": "passed",
+    "failure_preservation_cases": 3
+  },
+  "limits": [
+    "CFR frame-index timing; VFR not auto-detected",
+    "ROI texture tracking does not identify semantic identity",
+    "Layered effects require explicit foreground/background/alpha; no automatic multi-view reconstruction",
+    "Default audio is silent; retimed and multi-input effects require a separate deliberate sound mix"
+  ],
+  "skill_packaging": {
+    "skills": 11,
+    "local_render_launchers": 9,
+    "metadata_and_internal_links": "passed",
+    "clean_install_and_idempotence": "passed",
+    "installed_roll_launcher_export": "passed"
+  }
+}

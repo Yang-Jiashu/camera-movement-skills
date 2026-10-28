@@ -1,0 +1,4 @@
+interface:
+  display_name: "运镜导演"
+  short_description: "统筹多镜头运镜与剪辑组合，按素材条件选择对应技法和执行技能"
+  default_prompt: "用 $camera-movement-direction 分析我的素材，统筹镜头目的、起止构图、技法组合与可执行方案。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "遮挡揭示与擦除"
+  short_description: "校对前景遮挡掩码与时间序列，制作贴合实物边缘的场景切换"
+  default_prompt: "用 $camera-occlusion-wipe 利用我视频里的前景遮挡物连接镜头，校验掩码、时序和边缘。"

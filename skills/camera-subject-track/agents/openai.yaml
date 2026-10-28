@@ -1,0 +1,4 @@
+interface:
+  display_name: "主体跟随重构图"
+  short_description: "跟踪指定主体并平滑裁切，处理遮挡、置信不足和主体出框"
+  default_prompt: "用 $camera-subject-track 跟踪我指定的视频主体，平滑保持构图，并检查失跟和裁切边界。"

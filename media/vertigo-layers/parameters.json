@@ -1,0 +1,20 @@
+{
+  "anchor": [
+    1080,
+    850
+  ],
+  "destination_at_1280": [
+    640,
+    500
+  ],
+  "foreground_scale": 0.9,
+  "background_scale": [
+    0.9,
+    0.68
+  ],
+  "source_size": [
+    2160,
+    1215
+  ],
+  "method": "Rigid foreground + completed far plate; limited 2.5D counter-scale composite."
+}

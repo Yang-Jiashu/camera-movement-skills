@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI视频运镜提示词"
+  short_description: "把镜头意图写成清楚的AI视频提示词，并按目标平台校准控制条件"
+  default_prompt: "用 $camera-ai-video-prompts 把我的场景写成可复制的运镜提示词，说明相机动作、终点和验收条件。"
