@@ -58,6 +58,15 @@
 - **实现**：时间重映射；沿原片时间顺序选择画面，快段跨过更多源帧。
 - **观察点**：速度变化有清楚的节奏，列车方向与轨道位置连续，关键经过时刻仍能看清。
 
+## 复现展示片
+
+在仓库根目录执行，替换FFmpeg路径；随包 `media/` 已包含所需输入。
+
+```bash
+python3 scripts/render_showcase.py --input-dir media --output-dir examples --ffmpeg /path/to/ffmpeg
+python3 scripts/build_previews.py --examples-dir examples --docs-dir docs --ffmpeg /path/to/ffmpeg
+```
+
 ## 从示例回到镜头设计
 
 滚转和甩镜建立冲击，分层眩晕改变空间感，遮挡与匹配变焦连接场景，速度渐变组织时间。选择它们时，先确定观众应该关注的主体与最终落点，再决定动作幅度。
