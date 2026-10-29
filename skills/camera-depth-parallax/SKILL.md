@@ -7,6 +7,10 @@ description: "用显式前后景图层和alpha制作有限的2.5D视差、横纵
 
 利用不同层的相对位移表现前后关系。先选择能承受新露出区域的幅度，再设计动作；二维分层不提供准确的物体侧面和背面。
 
+## 从原图到成片
+
+没有图层时，使用 `scripts/camera_pipeline.py parallax`，以原图ROI/种子或alpha初始化，自动准备前景、alpha与有限补洞背景并按实际允许的运动渲染。安装后本技能 `scripts/pipeline.py` 固定parallax。按 [资产流程](../camera-motion-prep/references/asset-pipelines.md) 检查QA；运动被缩小时如实交付，不能恢复原强度暴露未经修补区域。已有合格图层可使用下方低层入口。
+
 ## CV处理设计
 
 用户要提前设计CV算法，或素材存在跟踪、边缘、几何、分层或时序问题时，先读 [处理方案](references/processing-pipeline.md)。参考按输入契约、预处理、算法、失败恢复与指标展开，并区分已有代码和需另行执行的设计。

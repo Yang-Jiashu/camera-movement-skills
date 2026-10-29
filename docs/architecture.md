@@ -7,7 +7,7 @@
 | 层 | 文件与入口 | 主要责任 |
 | --- | --- | --- |
 | 镜头设计 | `camera-movement-direction`、38 项图谱、场景配方 | 明确叙事目的，选择动作与实现路线，组织整片 |
-| 视觉预处理与资产 | `camera-motion-prep`、`scripts/prepare_motion.py`、用户提供的 ROI/掩码/图层 | 诊断素材，按需稳像或准备静态 alpha，核对资产与源片对应 |
+| 视觉预处理与资产 | camera-motion-prep、prepare_motion、motion_masks、motion_layers、motion_match、显式初始化 | 诊断/稳像、视频mask、有限分层补洞和视觉锚点，核对资产时序与运动预算 |
 | 专项执行 | 9 个后期执行 skill、`scripts/apply_camera_motion.py`、`scripts/motion_core.py` | 参数化几何、跟踪、转场、分层与时间处理 |
 | 报告与展示 | 输出旁的 JSON、`tests/`、`examples/`、`render_showcase.py` | 记录实际方法与检查结果，生成可复现的独立片段和主片 |
 
@@ -79,6 +79,12 @@ flowchart TD
 - 分层 alpha 与前景同尺寸，白色表示前景；背景必须覆盖所请求的整个运动范围。
 - `prepare_motion.py mask` 生成的是一个静态 alpha。视频中移动的遮挡物仍需要逐帧跟踪/分割和人工核查。
 - 背景补洞、深度与语义分割来自外部资产时，记录方法和适用范围。
+
+## 先准备资产再渲染
+
+`camera_pipeline.py`将wipe、parallax、layered-vertigo、match-zoom的准备和效果连接起来。中间资产先写临时目录；预处理拒绝或编码失败时保留旧视频、报告与资产。成功后交付 `.mp4`、`.json`、`.assets/`，后者含原始mask/图层、QA与实际参数。用户的ROI/点提示用于明确目标，算法不隐式更换对象。
+
+图层渲染消费approved_motion，明确记录动作缩小；直边擦除依据真实边界与完整覆盖；自动锚点经过几何质量检查。大模型分割和三维重建仍为额外路线。
 
 ## 控制面和计算面
 

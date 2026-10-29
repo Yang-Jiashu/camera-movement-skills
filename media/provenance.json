@@ -67,5 +67,10 @@
     "processing": "Procedural synthesized rhythm, bass, hats, pad and transition whooshes",
     "seed": 20261028,
     "third_party_music": false
+  },
+  "flag.jpg": {
+    "original": "IMG_0319.HEIC",
+    "processing": "User-owned original photograph converted to opaque 8-bit SDR JPEG. Foreground/alpha/background are generated anew by motion_layers from ROI and point prompts.",
+    "role": "New pipeline demonstration input; no prepared layer assets required"
   }
 }

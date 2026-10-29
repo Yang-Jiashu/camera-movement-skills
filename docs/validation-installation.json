@@ -1,0 +1,9 @@
+{
+  "skills": 12,
+  "launchers_help": 15,
+  "shared_runtime_files": 7,
+  "clean_install": "passed",
+  "idempotence": "passed",
+  "installed_pipeline_render_frames": 10,
+  "subreport_points_to_final_output": true
+}

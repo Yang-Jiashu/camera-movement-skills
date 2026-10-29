@@ -7,6 +7,10 @@ description: "使用显式前景、背景和alpha图层制作2.5D眩晕效果，
 
 让前景主体保持刚性和近似固定尺寸，同时改变后景比例。此技能执行有限的2.5D合成，交付中明确这一实现方式。
 
+## 从原图准备资产
+
+没有现成图层时，使用 `scripts/camera_pipeline.py layered-vertigo`，以原图ROI/种子或alpha初始化前景，执行有限背景补洞、运动暴露区检查和渲染。安装后本技能的 `scripts/pipeline.py` 固定此命令。先读 [资产流程](../camera-motion-prep/references/asset-pipelines.md)，查看QA图；必须使用manifest中的approved_motion，严格保持请求则用strict模式。已有可靠图层继续使用下方原入口。
+
 ## CV处理设计
 
 用户要提前设计CV算法，或素材存在跟踪、边缘、几何、分层或时序问题时，先读 [处理方案](references/processing-pipeline.md)。参考按输入契约、预处理、算法、失败恢复与指标展开，并区分已有代码和需另行执行的设计。

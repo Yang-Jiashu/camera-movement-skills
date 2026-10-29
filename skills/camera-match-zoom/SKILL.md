@@ -7,6 +7,10 @@ description: "以两个镜头中对应的形状或主体为视觉锚点，制作
 
 先找到两个镜头能承接注意力的锚点，再用快速变焦阶段完成场景切换，最后恢复清楚的观察构图。
 
+## 自动估计或明确指定锚点
+
+使用 `scripts/camera_pipeline.py match-zoom`，不填anchors时运行SIFT双向匹配与RANSAC配准，保存内点图和锚点诊断后渲染。安装后本技能 `scripts/pipeline.py` 固定此命令。低纹理、重复结构或几何不一致时拒绝自动匹配；不同地点的形状承接可明确指定两侧anchors。先读 [资产流程](../camera-motion-prep/references/asset-pipelines.md)，不要把几何支持当语义身份验证。下方原命令用于已知锚点的直接执行。
+
 ## CV处理设计
 
 用户要提前设计CV算法，或素材存在跟踪、边缘、几何、分层或时序问题时，先读 [处理方案](references/processing-pipeline.md)。参考按输入契约、预处理、算法、失败恢复与指标展开，并区分已有代码和需另行执行的设计。

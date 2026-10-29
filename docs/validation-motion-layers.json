@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "scope": "Actual single-photo ROI/alpha preparation, classical inpainting, motion-footprint budgeting and rendered layered video.",
+  "environment": {
+    "python": "3.9.6",
+    "opencv": "4.13.0",
+    "backend": "cv2.INPAINT_TELEA",
+    "learned_weights_downloaded": false
+  },
+  "tests": {
+    "command": "python3 -m unittest discover -s tests -p test_motion_layers.py -v",
+    "passed": 8,
+    "failed": 0,
+    "coverage": [
+      "Default preserves real alpha openings and disconnected structures; explicit cleanup is configurable.",
+      "CLI seed arguments execute real GrabCut.",
+      "Output hardlink aliases cannot overwrite the supplied alpha.",
+      "Rejected overwrite preserves a previous complete layer bundle.",
+      "Strict motion rejects unsupported exposure without exporting pretend assets.",
+      "Non-strict motion reduction is explicit and passes complete working-resolution exposure checks.",
+      "New ROI GrabCut assets are generated without preexisting layers.",
+      "Known-ground-truth background pixels improve after actual inpainting."
+    ]
+  },
+  "synthetic_ground_truth": {
+    "fixture": "Procedurally generated 480x270 gradient background and opaque red rectangle; see tests/test_motion_layers.py.",
+    "certified_repair_pixels": 2644,
+    "before_mae_8bit": 79.28151790216843,
+    "after_mae_8bit": 0.8077407967725668,
+    "after_before_ratio": 0.010188260998853484,
+    "interpretation": "This simple gradient verifies real repair and color-ghost removal; it does not establish quality on complex photographic holes."
+  },
+  "fresh_user_photo": {
+    "original_name": "IMG_0319.HEIC",
+    "converted_input": "IMG_0319.jpg",
+    "provenance": "Existing user-supplied photo; newly converted via macOS sips to opaque 8-bit JPEG for this run. No old layer assets or masks used.",
+    "converted_input_sha256": "636b65d062db3b5970249b22a9cb8f024f77942b59017a7a1bd25ed6b9d0bc4e",
+    "original_size": [
+      4032,
+      3024
+    ],
+    "working_size": [
+      1920,
+      1440
+    ],
+    "segmentation": {
+      "method": "Static ROI-constrained GrabCut color segmentation",
+      "input_size": [
+        1920,
+        1440
+      ],
+      "analysis_size": [
+        960,
+        720
+      ],
+      "roi": [
+        0.085,
+        0.24,
+        0.73,
+        0.56
+      ],
+      "foreground_points": [
+        [
+          0.3,
+          0.4
+        ],
+        [
+          0.6,
+          0.315
+        ],
+        [
+          0.6,
+          0.35
+        ]
+      ],
+      "background_points": [
+        [
+          0.1,
+          0.245
+        ],
+        [
+          0.805,
+          0.5
+        ]
+      ],
+      "iterations": 5,
+      "foreground_fraction": 0.32416377314814815,
+      "feather_source_pixels": 0.0,
+      "alpha_white": "foreground",
+      "learned_segmentation": false,
+      "temporal_propagation": false,
+      "limitations": "Color/texture separation needs user supervision; this is not semantic segmentation or a video mask tracker."
+    },
+    "cleanup": {
+      "pixels_before": 896248,
+      "pixels_after": 896248,
+      "min_component_area": 0,
+      "keep_largest": false,
+      "fill_holes_up_to": 0,
+      "close_radius": 0,
+      "note": "Cleanup is explicit; default preserves disconnected components and real openings."
+    },
+    "foreground_fraction": 0.32416377314814815,
+    "status": "accepted",
+    "motion_factor": 1.0,
+    "requested_motion": {
+      "width": 1280,
+      "height": 720,
+      "fps": 30.0,
+      "duration": 4.0,
+      "foreground_scale_start": 1.08,
+      "foreground_scale_end": 1.17,
+      "background_scale_start": 1.08,
+      "background_scale_end": 1.1,
+      "foreground_shift_start": [
+        0.0,
+        0.0
+      ],
+      "foreground_shift_end": [
+        0.012,
+        0.0
+      ],
+      "background_shift_start": [
+        0.0,
+        0.0
+      ],
+      "background_shift_end": [
+        -0.003,
+        0.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "easing": "smooth"
+    },
+    "approved_motion": {
+      "width": 1280,
+      "height": 720,
+      "fps": 30.0,
+      "duration": 4.0,
+      "foreground_scale_start": 1.08,
+      "foreground_scale_end": 1.17,
+      "background_scale_start": 1.08,
+      "background_scale_end": 1.1,
+      "foreground_shift_start": [
+        0.0,
+        0.0
+      ],
+      "foreground_shift_end": [
+        0.012,
+        0.0
+      ],
+      "background_shift_start": [
+        0.0,
+        0.0
+      ],
+      "background_shift_end": [
+        -0.003,
+        0.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "easing": "smooth"
+    },
+    "approved_budget": {
+      "geometry_valid": true,
+      "sampled_frames": 120,
+      "minimum_background_margin": 71.305419921875,
+      "repair_fraction": 0.012072844328703704,
+      "repair_pixels": 33379,
+      "maximum_repair_distance": 21.5751953125,
+      "maximum_repaired_view_fraction": 0.007132718607576357,
+      "source_size": [
+        1920,
+        1440
+      ],
+      "budget_size": [
+        1920,
+        1440
+      ],
+      "full_resolution": true,
+      "sampling_guard_source_pixels": 2.0
+    },
+    "budget_limits": {
+      "maximum_repair_fraction": 0.035,
+      "maximum_fill_distance_working_pixels": 24.0,
+      "maximum_repaired_view_fraction": 0.12,
+      "min_motion_factor": 0.05,
+      "interpretation": "Geometric limits for classical inpainting; not a semantic completion-quality guarantee."
+    },
+    "inpainting": {
+      "backend": "telea",
+      "radius_working_pixels": 3.0,
+      "occlusion_pixels": 909202,
+      "certified_visible_repair_pixels": 33379,
+      "hidden_core_pixels_not_certified": 875823
+    },
+    "qa": {
+      "review_required": true,
+      "visible_repair_laplacian_mean": 3.245513677597046,
+      "known_ring_laplacian_mean": 4.2653961181640625,
+      "note": "Texture statistics are diagnostics, not proof of realistic completion. Inspect the contact sheet and rendered motion."
+    },
+    "decoded_output": {
+      "basename": "flag-new-layers-parallax.mp4",
+      "frames": 120,
+      "fps": 30,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 4,
+      "all_frames_decoded": true
+    },
+    "visual_review": {
+      "reviewer": "Implementation agent, contact sheets from actual H.264 decoded frames plus generated-asset QA sheet.",
+      "observed": [
+        "Foreground flag silhouette is complete at the inspected first, middle and final frames.",
+        "Foreground enlarges faster than the wall and shifts right; full requested strength retained.",
+        "No exposed empty band or obvious red/blue color ghost in the inspected visible repair strips.",
+        "The large inpainted hidden core is visibly poor and explicitly marked untrusted; it remains behind the foreground during this motion."
+      ],
+      "scope": "Limited 2.5D illustration only. Manual sequence review remains required before publication; not actual depth or reconstructed hidden wall."
+    },
+    "artifacts": {
+      "storage": "Validation-run outputs; selected files may be copied into the repository proof gallery by its maintainer.",
+      "asset_directory": "flag-full-budget",
+      "assets": [
+        "foreground.png",
+        "background.png",
+        "alpha.png",
+        "repair-mask.png",
+        "required-background-mask.png",
+        "background-validity.png",
+        "qa-contact.jpg",
+        "manifest.json"
+      ],
+      "decoded_contact": "flag-decoded-contact.jpg",
+      "render_command": "flag-render-command.json",
+      "prepare_command": "flag-prepare-command.json"
+    }
+  },
+  "discarded_photo_probe": {
+    "source": "IMG_0291.jpg",
+    "reason": "Sparse ROI GrabCut mislabeled broad gradient-sky regions as foreground; visual alpha review failed. Not used as a showcase proof. No general semantic-segmentation ability is claimed."
+  },
+  "safety_and_quality_boundaries": [
+    "Every candidate motion is tested at working-source resolution over every output frame; coarse resampling is diagnostic only because narrow known openings can disappear.",
+    "Required source footprint is expanded for interpolation support. Manifest records full-resolution budget, all attempts, approved actual motion and explicit reductions.",
+    "Telea/NS removes the full occluder for valid known-background context; only the required exposed band is certified for the approved motion. Hidden core is not scene reconstruction.",
+    "Preparation checks opaque uint8 RGB input and HDR tags when FFmpeg is available; absence of HDR metadata is not proof of an intended SDR transfer.",
+    "No learned segmentation/depth/inpainting model, 3D recovery, video segmentation or temporal background synthesis is used.",
+    "Bundle publication uses shared staging and rollback; output aliases, unsupported symlinks and rejected replacement over existing assets are protected."
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "status": "validated_with_explicit_limits",
+  "validated_on": "2026-10-29",
+  "implementation": {
+    "entrypoint": "scripts/motion_masks.py",
+    "runtime": [
+      "motion_core.py",
+      "numpy",
+      "opencv-python"
+    ],
+    "algorithms": [
+      "ROI and positive/negative seed supervised GrabCut, or user initial alpha",
+      "dense DIS or Farneback forward and backward optical flow",
+      "backward mask warp with forward/back residual and photometric gates",
+      "foreground Lab palette support for hard seeds and cut rejection",
+      "local GrabCut silhouette update, supported-component retention",
+      "visible silhouette displacement and frame-border exit evidence",
+      "after-exit border appearance checks with explicit single-pass scope",
+      "RANSAC trailing edge plus independent Canny image-edge support",
+      "separate object alpha and swept-side B reveal alpha"
+    ],
+    "not_implemented": [
+      "semantic segmentation",
+      "SAM weights",
+      "RAFT",
+      "monocular depth",
+      "arbitrary articulated occluder reveals",
+      "semantic proof of absence after exit"
+    ]
+  },
+  "environment": {
+    "python": "3.9.6",
+    "opencv": "4.13.0",
+    "numpy": "1.26.4"
+  },
+  "tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "total_tests_at_validation": 41,
+    "motion_mask_tests": 13,
+    "passed": true,
+    "coverage": [
+      "prompted initialization vs known foreground",
+      "67-frame independent-object pass vs per-pixel truth",
+      "correct B-side semantics for four directions",
+      "curved and nonspanning boundaries rejected",
+      "incomplete head/tail rejected without padding",
+      "direction reversal rejected without silently forcing monotonic masks",
+      "textured and low-texture in-frame disappearance rejected",
+      "re-entry after observed exit rejected",
+      "unproven empty mask rejected",
+      "output/input containment refused",
+      "publication failure restores previous bundle"
+    ]
+  },
+  "synthetic": [
+    {
+      "flow": "dis",
+      "status": "accepted",
+      "frames": 67,
+      "foreground_iou_mean": 1.0,
+      "foreground_iou_min": 1.0,
+      "reveal_alpha_mae": 1.5476106783603138e-16,
+      "reveal_boundary_median_error_pixels": 0.0,
+      "first_b_fraction": 0.0,
+      "last_b_fraction": 1.0,
+      "worst_b_fraction_step": 0.0
+    },
+    {
+      "flow": "farneback",
+      "status": "accepted",
+      "frames": 67,
+      "foreground_iou_mean": 1.0,
+      "foreground_iou_min": 1.0,
+      "reveal_alpha_mae": 1.5476106783603138e-16,
+      "reveal_boundary_median_error_pixels": 0.0,
+      "first_b_fraction": 0.0,
+      "last_b_fraction": 1.0,
+      "worst_b_fraction_step": 0.0
+    }
+  ],
+  "real_airport": {
+    "status": "accepted_with_limited_dense_support",
+    "source": "media/airport.mp4",
+    "source_interval_seconds": [
+      6.9,
+      8.0
+    ],
+    "frame_count": 33,
+    "init_frame": 16,
+    "initialization": "ROI [0,0,.38,1], foreground points [.12,.5],[.32,.5], background [.55,.5]; independent reference never used as input",
+    "reveal_reference": "media/pillar-masks/%04d.png, existing manually prepared reveal; a comparison reference, not pixel-perfect ground truth",
+    "reveal_alpha_mae": 0.0007737299465240641,
+    "active_frame_binary_reveal_iou_mean": 0.9943863386097374,
+    "active_frame_boundary_error_median_source_pixels": 2.0,
+    "active_frame_boundary_error_p95_source_pixels": 8.0,
+    "first_b_fraction": 0.0,
+    "last_b_fraction": 1.0,
+    "worst_b_fraction_step": 0.0,
+    "low_dense_support_frames": [
+      18,
+      20
+    ],
+    "visible_or_initialized_frames": 16,
+    "outside_frames": 17,
+    "visual_review_contact": "../../.vlog_showcase/motion-masks-test/airport-reveal-contact.jpg"
+  },
+  "real_commands": [
+    "python3 scripts/motion_masks.py --input media/airport.mp4 --output-dir ../../.vlog_showcase/motion-masks-test/airport-generated --start 6.9 --duration 1.1 --fps 30 --init-frame 16 --roi 0 0 .38 1 --foreground-point .12 .5 --foreground-point .32 .5 --background-point .55 .5 --mode reveal --reveal-direction right --analysis-width 640 --flow dis --require-complete-reveal --ffmpeg <ffmpeg>",
+    "python3 scripts/motion_masks.py --input media/airport.mp4 --output-dir ../../.vlog_showcase/motion-masks-test/airport-object --start 7.233333333333333 --duration .06666666666666667 --fps 30 --init-frame 0 --initial-mask ../../.vlog_showcase/motion-masks-test/airport-generated/object/0010.png --mode object --analysis-width 640 --flow dis --ffmpeg <ffmpeg>"
+  ],
+  "real_object_mode": {
+    "status": "accepted",
+    "frames": 2,
+    "source_start_seconds": 7.233333333333333,
+    "initial_mask": "new generated object/0010.png",
+    "note": "Exercises the explicit initial-mask entrypoint separately; it is not an independent object-mask accuracy benchmark."
+  },
+  "limits": [
+    "CFR frame-index timing is assumed; VFR is not detected. Mask cadence can repeat/drop source frames, never interpolate.",
+    "Tagged HDR is refused and must be explicitly converted before processing; absence of HDR tags is not proof of SDR.",
+    "User supervision identifies the target. Color and flow gates cannot prove semantic identity.",
+    "No all-video frame array is retained; source and analysis masks are cached to disk, propagation holds two frames.",
+    "Straight solid spanning occluders and a single monotonic pass are required for reveal. The object mask is never directly substituted for B alpha.",
+    "After a verified border exit, every remaining border is checked for foreground-like spanning content; this color check cannot detect every re-entry or prove absence.",
+    "Near the final border a <=2%-width, <=1.5%-area observed sliver uses actual silhouette coverage; no fake full-frame object masks or endpoint padding are added.",
+    "Low dense coverage on airport frames 18 and 20 is explicitly reported and accepted only because independent geometry and image-edge checks pass.",
+    "Airport comparison uses an existing manually prepared reveal reference, not pixel-perfect semantic ground truth. New synthetic masks provide exact ground truth.",
+    "The output directory is staged and validated before rename; backup/replace is not a cross-operation transaction and does not coordinate concurrent writers.",
+    "Assets have no audio. Audio is a later rendering decision."
+  ],
+  "artifacts_workspace_relative": ".vlog_showcase/motion-masks-test",
+  "visual_review": {
+    "contact_sheet": "airport-reveal-contact.jpg",
+    "status": "inspected",
+    "observations": "Swept B side follows the visible trailing gray pillar edge; small matte irregularities remain in object alpha, and a tiny border fragment is retained at local frame21."
+  },
+  "cli_failure_checks": [
+    {
+      "name": "incomplete_wipe_late_failure_preserves_old_assets",
+      "exit_code": 2,
+      "reason": "Measured occluder does not complete this wipe: choose an interval with full head/tail occlusion.",
+      "accepted": true,
+      "old_bundle_unchanged": true
+    },
+    {
+      "name": "no_overwrite_preserves_old_assets",
+      "exit_code": 2,
+      "reason": "Output already exists; use --overwrite only for a prior generated mask bundle.",
+      "accepted": true,
+      "old_bundle_unchanged": true
+    },
+    {
+      "name": "output_cannot_contain_input",
+      "exit_code": 2,
+      "reason": "Output directory cannot contain or alias an input asset.",
+      "accepted": true
+    },
+    {
+      "name": "directory_without_generator_manifest_refused",
+      "exit_code": 2,
+      "reason": "Refusing to overwrite a directory without a motion_masks manifest.",
+      "accepted": true
+    },
+    {
+      "name": "tagged_hdr_rejected_without_assets",
+      "exit_code": 2,
+      "reason": "HDR input detected. Run the convert-hdr subcommand first; ordinary effects accept SDR and never silently tone-map it.",
+      "accepted": true
+    }
+  ],
+  "cli_help_smoke": {
+    "command": "python3 scripts/motion_masks.py --help",
+    "exit_code": 0
+  }
+}

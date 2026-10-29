@@ -1,0 +1,88 @@
+{
+  "description": "Complete existing demo clips, sampled without retiming; labels added outside footage.",
+  "cards": [
+    {
+      "source": "01-barrel-roll.mp4",
+      "gif": "01-barrel-roll.gif",
+      "width": 360,
+      "height": 265,
+      "frames": 32,
+      "duration_ms": 4000,
+      "bytes": 1512868,
+      "source_timing": "unchanged; sampled at 8 fps"
+    },
+    {
+      "source": "02-whip-pan.mp4",
+      "gif": "02-whip-pan.gif",
+      "width": 360,
+      "height": 265,
+      "frames": 32,
+      "duration_ms": 4000,
+      "bytes": 1185153,
+      "source_timing": "unchanged; sampled at 8 fps"
+    },
+    {
+      "source": "03-layered-vertigo.mp4",
+      "gif": "03-layered-vertigo.gif",
+      "width": 360,
+      "height": 265,
+      "frames": 32,
+      "duration_ms": 4000,
+      "bytes": 1074019,
+      "source_timing": "unchanged; sampled at 8 fps"
+    },
+    {
+      "source": "04-occlusion-wipe.mp4",
+      "gif": "04-occlusion-wipe.gif",
+      "width": 360,
+      "height": 265,
+      "frames": 32,
+      "duration_ms": 4000,
+      "bytes": 1181013,
+      "source_timing": "unchanged; sampled at 8 fps"
+    },
+    {
+      "source": "05-match-zoom.mp4",
+      "gif": "05-match-zoom.gif",
+      "width": 360,
+      "height": 265,
+      "frames": 32,
+      "duration_ms": 4000,
+      "bytes": 1375887,
+      "source_timing": "unchanged; sampled at 8 fps"
+    },
+    {
+      "source": "06-speed-ramp.mp4",
+      "gif": "06-speed-ramp.gif",
+      "width": 360,
+      "height": 265,
+      "frames": 32,
+      "duration_ms": 4000,
+      "bytes": 1548128,
+      "source_timing": "unchanged; sampled at 8 fps"
+    }
+  ],
+  "pipeline_proof": {
+    "gif": "pipeline-proof.gif",
+    "width": 1144,
+    "height": 291,
+    "frames": 32,
+    "duration_ms": 4000,
+    "bytes": 336348,
+    "source_timing": "unchanged; sampled at 8 fps",
+    "source": "flag.jpg",
+    "source_sha256": "636b65d062db3b5970249b22a9cb8f024f77942b59017a7a1bd25ed6b9d0bc4e",
+    "video": "auto-parallax.mp4",
+    "video_sha256": "9a4b9b3da3485581d39e61f52cd1af80b17b8dd91c9200ecb2ad6077e65a27de",
+    "asset_manifest_sha256": "a4bda827021f7a7e58d71069cd4fe98fabc73a59c03d3cfadfa7bcbbd1a88a11",
+    "asset_hashes": {
+      "alpha.png": "02f69b496487cd53de2e8f4aa0dc73c7e93ee531c0789e2a8d451b1bb5889d83",
+      "background.png": "25786350f24c2347605fb66425e6aed92ec8d1dd7709f3b7ec9b537dcb234ff7",
+      "repair-mask.png": "0ec9a404823905fb879308c200ba2e6650f16eb39d57b870f25d4fd00e97833e",
+      "background-validity.png": "1c1b25dc791c4d732788d9e0a93e655c5753faa97af1b364761061671285e065"
+    },
+    "initialization": "User ROI and foreground/background points; actual GrabCut output",
+    "motion_factor": 1.0,
+    "background_legend": "cyan = local repair approved for this motion; hatch = uncertified hidden core, not recovered scene truth"
+  }
+}

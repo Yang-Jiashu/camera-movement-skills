@@ -7,6 +7,12 @@ description: "利用已有视频中的立柱、门框等前景遮挡物连接两
 
 让镜头B沿前景遮挡物的实际边界出现。先验证遮挡数据与镜头A匹配，再讨论转场的速度和风格。
 
+## 先准备再合成
+
+没有逐帧mask时，优先使用 `scripts/camera_pipeline.py wipe`，它从指定初始化帧的ROI或mask执行双向稠密光流传播、直边揭示验证，再调用合成器。安装后本技能的 `scripts/pipeline.py` 固定为wipe。先读 [资产准备](../camera-motion-prep/references/asset-pipelines.md) 与 `--help`；直边必须真实扫过画面，缺失或跟丢时不能补全黑/全白伪装成功。
+
+已有可靠mask则使用下面的低层入口；复杂曲线或交叉遮挡按实际边界复核，不把直边算法扩展为任意物体全自动转场。
+
 ## CV处理设计
 
 用户要提前设计CV算法，或素材存在跟踪、边缘、几何、分层或时序问题时，先读 [处理方案](references/processing-pipeline.md)。参考按输入契约、预处理、算法、失败恢复与指标展开，并区分已有代码和需另行执行的设计。
